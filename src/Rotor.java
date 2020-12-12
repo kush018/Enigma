@@ -58,6 +58,10 @@ public class Rotor {
         return findInteger(pos, tempWiring);
     }
 
+    public void setSetting(int setting) {
+        this.setting = setting;
+    }
+
     //finds an integer in an unsorted one dimensional array of integers and returns the index of that integer
     //if the integer does not exist, then it returns -1
     private static int findInteger(int element, int[] array) {
