@@ -5,23 +5,26 @@ public class PlugBoard {
     private int[][] plugBoardWiring;
 
     //constructor
-    public PlugBoard(String wiringInfo) {
-        String[] wiringAsString = stringArraySplit(wiringInfo, " ");
+    public PlugBoard(String[] connections) {
+        plugBoardWiring = new int[13][2];
+        int i = 0;
+        for (;i < connections.length; i++) {
+            plugBoardWiring[i][0] = connections[i].charAt(0) - 65;
+            plugBoardWiring[i][1] = connections[i].charAt(1) - 65;
+        }
+        for (; i < plugBoardWiring.length; i++) {
+            plugBoardWiring[i] = new int[] {-1, -1};
+        }
     }
 
-    private static String[] stringArraySplit(String str, String splitter) {
-        //this part in particular could be improved
-        String[] splittedArray = new String[str.length()];
-        String temp = "";
-        for (int i = 0, j = 0; i < str.length(); i++) {
-            if (str.charAt(i) != ' ') {
-                temp += str.charAt(i);
-            } else {
-                splittedArray[j] = temp;
-                temp = "";
-                j++;
+    public int findConnection(int pos) {
+        for (int i = 0; i < plugBoardWiring.length; i++) {
+            if (plugBoardWiring[i][0] == pos) {
+                return plugBoardWiring[i][1];
+            } else if (plugBoardWiring[i][1] == pos) {
+                return plugBoardWiring[i][0];
             }
         }
-        return splittedArray;
+        return -1;
     }
 }
