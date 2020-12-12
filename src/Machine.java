@@ -13,6 +13,12 @@ public class Machine {
         this.rotorGroup = rotorGroup;
     }
 
+    public Machine(Reflector reflector, RotorGroup rotorGroup) {
+        this.reflector = reflector;
+        this.rotorGroup = rotorGroup;
+        this.plugBoard = new PlugBoard(new String[] {});
+    }
+
     public char getChar(char ch) {
         int pos = ch - 65;
         pos = plugBoard.findConnection(pos);
