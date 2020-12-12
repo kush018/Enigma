@@ -25,6 +25,6 @@ public class PlugBoard {
                 return plugBoardWiring[i][0];
             }
         }
-        return -1;
+        return pos;
     }
 }
