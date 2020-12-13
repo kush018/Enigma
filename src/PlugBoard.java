@@ -2,7 +2,7 @@ public class PlugBoard {
     //a class representing PlugBoards
 
     //a two dimensional array containing information about plug board wirings
-    private int[][] plugBoardWiring;
+    private final int[][] plugBoardWiring;
 
     //constructor
     public PlugBoard(String[] connections) {
@@ -18,11 +18,11 @@ public class PlugBoard {
     }
 
     public int findConnection(int pos) {
-        for (int i = 0; i < plugBoardWiring.length; i++) {
-            if (plugBoardWiring[i][0] == pos) {
-                return plugBoardWiring[i][1];
-            } else if (plugBoardWiring[i][1] == pos) {
-                return plugBoardWiring[i][0];
+        for (int[] ints : plugBoardWiring) {
+            if (ints[0] == pos) {
+                return ints[1];
+            } else if (ints[1] == pos) {
+                return ints[0];
             }
         }
         return pos;

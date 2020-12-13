@@ -5,7 +5,7 @@ public class Rotor {
 
     //one dimensional int array that contains data about the wiring of the pins of the rotor for its "zero" setting
     //the wiring is in sequential order i.e. the first int in the array tells which pin the first pin is wired to
-    private int[] wiring;
+    private final int[] wiring;
 
     //int that stores the "setting" of the Rotor object (between 0 and 25)
     private int setting;
@@ -56,10 +56,6 @@ public class Rotor {
             tempWiring[i] %= 26;
         }
         return findInteger(pos, tempWiring);
-    }
-
-    public void setSetting(int setting) {
-        this.setting = setting;
     }
 
     //finds an integer in an unsorted one dimensional array of integers and returns the index of that integer

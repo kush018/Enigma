@@ -3,20 +3,14 @@ public class Machine {
     A class that represents an Enigma machine
      */
 
-    private PlugBoard plugBoard;
-    private Reflector reflector;
-    private RotorGroup rotorGroup;
+    private final PlugBoard plugBoard;
+    private final Reflector reflector;
+    private final RotorGroup rotorGroup;
 
     public Machine(PlugBoard plugBoard, Reflector reflector, RotorGroup rotorGroup) {
         this.plugBoard = plugBoard;
         this.reflector = reflector;
         this.rotorGroup = rotorGroup;
-    }
-
-    public Machine(Reflector reflector, RotorGroup rotorGroup) {
-        this.reflector = reflector;
-        this.rotorGroup = rotorGroup;
-        this.plugBoard = new PlugBoard(new String[] {});
     }
 
     public char getChar(char ch) {

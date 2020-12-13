@@ -2,7 +2,7 @@ public class Reflector {
     //a class for all reflector objects
 
     //one dimensional int array that stores the positions the pins are wired to in sequential order
-    private int[] wiring;
+    private final int[] wiring;
 
     //constructor
     public Reflector(String wiringInfo) {

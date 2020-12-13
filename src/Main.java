@@ -28,9 +28,9 @@ public class Main {
         Machine machine = new Machine(plugBoard, reflector, rotorGroup);
         System.out.print("Enter message: ");
         String message = reader.readLine();
-        String cipher = "";
+        StringBuilder cipher = new StringBuilder();
         for (int i = 0; i < message.length(); i++) {
-            cipher += machine.getChar(message.charAt(i));
+            cipher.append(machine.getChar(message.charAt(i)));
             machine.advance();
         }
         System.out.println("Cipher: " + cipher);

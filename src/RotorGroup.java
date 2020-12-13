@@ -2,7 +2,7 @@ public class RotorGroup {
     //a class for objects representing a group of Rotor objects
 
     //a one dimensional array representing all the rotors present in the RotorGroup object
-    private Rotor[] rotors;
+    private final Rotor[] rotors;
 
     //a constructor for all RotorGroup objects
     public RotorGroup(Rotor[] rotors) {
@@ -18,8 +18,8 @@ public class RotorGroup {
     }
 
     public int getPositionInverse(int pos) {
-        for (int i = 0; i < rotors.length; i++) {
-            pos = rotors[i].getWiredPositionInverse(pos);
+        for (Rotor rotor : rotors) {
+            pos = rotor.getWiredPositionInverse(pos);
         }
         return pos;
     }
