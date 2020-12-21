@@ -12,7 +12,11 @@ public class Rotor {
 
     //constructor for all Rotor objects
     public Rotor(int setting, String wiringInfo) {
-        this.setting = setting;
+        if (0 <= setting && setting <= 25) {
+            this.setting = setting;
+        } else {
+            this.setting = 0;
+        }
         //initialises the wiring array
         wiring = new int[26];
         //wiring info consists of all positions in the form of a compact String

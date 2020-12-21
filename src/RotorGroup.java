@@ -33,4 +33,18 @@ public class RotorGroup {
             break;
         }
     }
+
+    public static RotorGroup getRotorGroupByNames(String[] rotorNames, int[] rotorSettings) {
+        Rotor[] rotors = new Rotor[rotorNames.length];
+        for (int i = 0; i < rotorNames.length; i++) {
+            String currentRotorWiring = "";
+            for (int j = 0; j < WiringData.rotorWiringData.length; j++) {
+                if (WiringData.rotorWiringData[j][0].equals(rotorNames[i])) {
+                    currentRotorWiring = WiringData.rotorWiringData[j][1];
+                }
+            }
+            rotors[i] = new Rotor(rotorSettings[i], currentRotorWiring);
+        }
+        return new RotorGroup(rotors);
+    }
 }

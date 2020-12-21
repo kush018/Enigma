@@ -19,4 +19,13 @@ public class Reflector {
     public int getPosition(int pos) {
         return wiring[pos];
     }
+
+    public static Reflector getReflectorByName(String name) {
+        for (int i = 0; i < WiringData.reflectorWiringData.length; i++) {
+            if (WiringData.reflectorWiringData[i][0].equals(name)) {
+                return new Reflector(WiringData.reflectorWiringData[i][1]);
+            }
+        }
+        return new Reflector("");
+    }
 }
