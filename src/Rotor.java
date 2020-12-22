@@ -76,4 +76,12 @@ public class Rotor {
     public int getSetting() {
         return this.setting;
     }
+
+    public void setSetting(int setting) {
+        if (0 <= setting && setting <= 25) {
+            this.setting = setting;
+        } else {
+            this.setting = 0;
+        }
+    }
 }

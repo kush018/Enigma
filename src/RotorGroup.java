@@ -55,4 +55,10 @@ public class RotorGroup {
         }
         return settings;
     }
+
+    public void setChildRotorSettings(int[] settings) {
+        for (int i = 0; i < settings.length; i++) {
+            rotors[i].setSetting(settings[i]);
+        }
+    }
 }

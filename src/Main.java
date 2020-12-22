@@ -23,10 +23,21 @@ public class Main {
             } else if (userInput.equals("exit;")) {
                 System.out.println("Byeee!");
                 System.exit(0);
+            } else if (userInput.equals("settingset;")) {
+                settingset();
             } else {
                 System.out.println(machine.convertMessage(userInput));
             }
         }
+    }
+
+    public static void settingset() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("Enter new rotor settings:");
+        String settingsStr = reader.readLine();
+
+        machine.setRotorSettings(settingsStr);
     }
 
     public static void set() throws IOException {

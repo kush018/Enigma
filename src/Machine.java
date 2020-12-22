@@ -86,4 +86,15 @@ public class Machine {
         }
         return settingsStr.toString();
     }
+
+    public void setRotorSettings(String settingsStr) {
+        String[] settingsStrArr = settingsStr.split(" ");
+        int[] newSettings = new int[settingsStrArr.length];
+
+        for (int i = 0; i < settingsStrArr.length; i++) {
+            newSettings[i] = Integer.parseInt(settingsStrArr[i]);
+        }
+
+        rotorGroup.setChildRotorSettings(newSettings);
+    }
 }
