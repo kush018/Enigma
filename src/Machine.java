@@ -13,8 +13,8 @@ public class Machine {
         this.rotorGroup = rotorGroup;
     }
 
-    public Machine(String reflectorName, String[] rotorNames, int[] settings, String[] plugBoardWiring) {
-        this(new PlugBoard(plugBoardWiring), Reflector.getReflectorByName(reflectorName), RotorGroup.getRotorGroupByNames(rotorNames, settings));
+    public static Machine getMachineBySetting(String reflectorName, String[] rotorNames, int[] settings, String[] plugBoardWiring) {
+        return new Machine(new PlugBoard(plugBoardWiring), Reflector.getReflectorByName(reflectorName), RotorGroup.getRotorGroupByNames(rotorNames, settings));
     }
 
     public char getChar(char ch) {
@@ -27,29 +27,18 @@ public class Machine {
         return (char) (pos + 65);
     }
 
-    public String convertWord(String message) {
+    public String convertMessage(String message) {
         StringBuilder convertedMessage = new StringBuilder();
+        message = message.toUpperCase();
         for (int i = 0; i < message.length(); i++) {
-            convertedMessage.append(getChar(message.charAt(i)));
-            advance();
+            if (('A' <= message.charAt(i) && message.charAt(i) <= 'Z')) {
+                convertedMessage.append(getChar(message.charAt(i)));
+                advance();
+            } else {
+                convertedMessage.append(message.charAt(i));
+            }
         }
         return convertedMessage.toString();
-    }
-
-    public void convertArray(String[] messageArray) {
-        for (int i = 0; i < messageArray.length; i++) {
-            messageArray[i] = convertWord(messageArray[i]);
-        }
-    }
-
-    public String convertMessage(String message) {
-        String[] array = convertStringToArray(message);
-        convertArray(array);
-        StringBuilder converted = new StringBuilder();
-        for (int i = 0; i < array.length; i++) {
-            converted.append(array[i] + " ");
-        }
-        return converted.toString();
     }
 
     public static String[] convertStringToArray(String str) {
@@ -87,5 +76,14 @@ public class Machine {
 
     public void advance() {
         rotorGroup.advance();
+    }
+
+    public String getRotorSettingsStr() {
+        int[] settings = rotorGroup.getChildRotorSettings();
+        StringBuilder settingsStr = new StringBuilder();
+        for (int i = 0; i < settings.length; i++) {
+            settingsStr.append(settings[i]).append(" ");
+        }
+        return settingsStr.toString();
     }
 }

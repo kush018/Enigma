@@ -72,4 +72,8 @@ public class Rotor {
         }
         return -1;
     }
+
+    public int getSetting() {
+        return this.setting;
+    }
 }

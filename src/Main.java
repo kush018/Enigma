@@ -11,12 +11,15 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        machine = new Machine("A", new String[] {"I", "II", "III"}, new int[] {0, 1, 2}, new String[] {"AA"});
+        machine = Machine.getMachineBySetting("C", new String[] {"I", "VIII", "III", "IV"}, new int[] {7, 11, 15, 21}, new String[] {"AU", "BY", "CO", "DS", "EQ", "FX", "GT", "HW", "KP", "MV"});
         while (true) {
             System.out.print("> ");
             String userInput = reader.readLine();
             if (userInput.equals("set;")) {
                 set();
+            } else if (userInput.equals("show;")) {
+                System.out.println("Current rotor settings are:");
+                System.out.println(machine.getRotorSettingsStr());
             } else if (userInput.equals("exit;")) {
                 System.out.println("Byeee!");
                 System.exit(0);
@@ -58,7 +61,7 @@ public class Main {
             settingsArrInt[i] = Integer.parseInt(settingsArr[i]);
         }
 
-        machine = new Machine(reflectorName, Machine.convertStringToArray(rotorNames), settingsArrInt, Machine.convertStringToArray(plugBoardSettings));
+        machine = Machine.getMachineBySetting(reflectorName, Machine.convertStringToArray(rotorNames), settingsArrInt, Machine.convertStringToArray(plugBoardSettings));
         System.out.println("Machine set successfully");
     }
 

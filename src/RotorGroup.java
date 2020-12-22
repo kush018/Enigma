@@ -47,4 +47,12 @@ public class RotorGroup {
         }
         return new RotorGroup(rotors);
     }
+
+    public int[] getChildRotorSettings() {
+        int[] settings = new int[rotors.length];
+        for (int i = 0; i < rotors.length; i++) {
+            settings[i] = rotors[i].getSetting();
+        }
+        return settings;
+    }
 }

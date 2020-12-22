@@ -6,14 +6,12 @@ public class PlugBoard {
 
     //constructor
     public PlugBoard(String[] connections) {
-        plugBoardWiring = new int[13][2];
+        plugBoardWiring = new int[connections.length][2];
         int i = 0;
         for (;i < connections.length; i++) {
+            connections[i] = connections[i].toUpperCase();
             plugBoardWiring[i][0] = connections[i].charAt(0) - 65;
             plugBoardWiring[i][1] = connections[i].charAt(1) - 65;
-        }
-        for (; i < plugBoardWiring.length; i++) {
-            plugBoardWiring[i] = new int[] {-1, -1};
         }
     }
 
