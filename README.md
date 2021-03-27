@@ -14,6 +14,12 @@ First, clone the repository
 git clone https://github.com/kush018/Enigma.git
 ```
 
+Then, change the directory to Enigma by:
+
+```
+cd Enigma
+```
+
 And then to compile the code,
 
 ```
