@@ -2,13 +2,20 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * The main class
+ *
+ * @author Kushal Galrani
+ */
 public class Main {
-    /*
-    The main class
-     */
 
     private static Machine machine;
 
+    /**
+     * The main method
+     * @param args Command-line arguments
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         machine = Machine.getMachineBySetting("C", new String[] {"I", "VIII", "III", "IV"}, new int[] {7, 11, 15, 21}, new String[] {"AU", "BY", "CO", "DS", "EQ", "FX", "GT", "HW", "KP", "MV"});
@@ -34,6 +41,9 @@ public class Main {
         }
     }
 
+    /**
+     * Displays the help menu on the console
+     */
     public static void displayHelp() {
         System.out.println("Valid commands are:");
         System.out.println("show; - shows the current settings of the rotors");
@@ -52,6 +62,10 @@ public class Main {
         System.out.println("Valid reflector names are A, B, C, B_THIN, C_THIN ONLY");
     }
 
+    /**
+     * Sets the settings of the rotors of the Enigma machine based on user input
+     * @throws IOException
+     */
     public static void settingset() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -61,6 +75,10 @@ public class Main {
         machine.setRotorSettings(settingsStr);
     }
 
+    /**
+     * Sets all the machine settings of the Enigma machine based on user input
+     * @throws IOException
+     */
     public static void set() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -97,6 +115,12 @@ public class Main {
         System.out.println("Machine set successfully");
     }
 
+    /**
+     * Checks the validity of a number of rotor names
+     * The validity of each rotor name is checked using the function checkValidityRotorName()
+     * @param rotorNames The String array containing all the rotor names whose validity needs to be checked
+     * @return true if and only if all the rotor names are valid
+     */
     public static boolean checkValidityRotorNames(String[] rotorNames) {
         for (int i = 0; i < rotorNames.length; i++) {
             if (!(checkValidityRotorName(rotorNames[i]))) {
@@ -108,6 +132,11 @@ public class Main {
         return true;
     }
 
+    /**
+     * Checks the validity of a rotor name (a rotor name is valid if there is an entry of that rotor name in the WiringData class)
+     * @param rotorName The name of the rotor whose validity needs to be checked.
+     * @return true if and only if the name of the rotor is valid.
+     */
     public static boolean checkValidityRotorName(String rotorName) {
         String[] validRotorNames = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII"};
 
@@ -120,6 +149,11 @@ public class Main {
         return false;
     }
 
+    /**
+     * Checks the validity of a reflector name (a reflector name is valid if there is an entry of that reflector name in the WiringData class)
+     * @param reflectorName The name of the reflector whose validity needs to be checked.
+     * @return true if and only if the name of the reflector is valid.
+     */
     public static boolean checkValidityReflectorName(String reflectorName) {
         String[] validReflectorNames = {"A", "B", "C", "B_THIN", "C_THIN"};
 
