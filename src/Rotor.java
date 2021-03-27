@@ -41,36 +41,23 @@ public class Rotor {
 
     //returns which position pos is wired to
     public int getWiredPosition(int pos) {
-        //one dimensional int array which stores wiring position based on the current setting
-        int[] tempWiring = new int[26];
-        for (int i = 0; i < wiring.length; i++) {
-            tempWiring[i] = wiring[i] + setting;
-            tempWiring[i] %= 26;
+        int wiredPos = wiring[(pos + setting) % 26] - setting;
+        if (wiredPos < 0) {
+            return 26 + wiredPos;
+        } else {
+            return wiredPos;
         }
-        return tempWiring[pos];
     }
 
     //returns a position such that if that position is used as an argument
     //for the method getWiredPosition(int pos) then it will return the argument entered
     public int getWiredPositionInverse(int pos) {
-        //one dimensional int array which stores wiring position based on the current setting
-        int[] tempWiring = new int[26];
-        for (int i = 0; i < wiring.length; i++) {
-            tempWiring[i] = wiring[i] + setting;
-            tempWiring[i] %= 26;
-        }
-        return findInteger(pos, tempWiring);
-    }
-
-    //finds an integer in an unsorted one dimensional array of integers and returns the index of that integer
-    //if the integer does not exist, then it returns -1
-    private static int findInteger(int element, int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == element) {
+        for (int i = 0; i < 26; i++) {
+            if (getWiredPosition(i) == pos) {
                 return i;
             }
         }
-        return -1;
+        return 0;
     }
 
     public int getSetting() {
