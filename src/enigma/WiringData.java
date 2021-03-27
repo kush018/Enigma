@@ -1,10 +1,12 @@
+package enigma;
+
 /**
  * Class that has data related to the wiring of rotors and reflectors.
- *
+ * 
  * @author Kushal Galrani
  */
 public class WiringData {
-    
+
     //two dimensional String array that stores rotor wiring information
     //the first element in each array in the below array represents the rotor name
     //the second element represents the wiring

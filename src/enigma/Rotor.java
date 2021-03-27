@@ -1,3 +1,5 @@
+package enigma;
+
 /**
  * A class that represents a rotor in an enigma machine.
  *
@@ -9,13 +11,13 @@ public class Rotor {
     //the wiring is in sequential order i.e. the first int in the array tells which pin the first pin is wired to
     private final int[] wiring;
 
-    //int that stores the "setting" of the Rotor object (between 0 and 25)
+    //int that stores the "setting" of the enigma.Rotor object (between 0 and 25)
     private int setting;
 
     /**
      *
      * @param setting The intial setting of the rotor
-     * @param wiringInfo The information regarding the wiring of the rotor in String representation. See WiringData class's code to understand how this String representation works
+     * @param wiringInfo The information regarding the wiring of the rotor in String representation. See enigma.WiringData class's code to understand how this String representation works
      */
     public Rotor(int setting, String wiringInfo) {
         if (0 <= setting && setting <= 25) {

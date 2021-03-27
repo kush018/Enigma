@@ -1,3 +1,5 @@
+package enigma;
+
 /**
  * A class representing an enigma machine plugboard.
  *

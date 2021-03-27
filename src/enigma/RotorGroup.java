@@ -1,3 +1,5 @@
+package enigma;
+
 /**
  * A class representing a group of rotor objects
  *
@@ -5,12 +7,12 @@
  */
 public class RotorGroup {
 
-    //a one dimensional array representing all the rotors present in the RotorGroup object
+    //a one dimensional array representing all the rotors present in the enigma.RotorGroup object
     private final Rotor[] rotors;
 
     /**
      *
-     * @param rotors An array of Rotor objects that need to be a part of this RotorGroup
+     * @param rotors An array of enigma.Rotor objects that need to be a part of this enigma.RotorGroup
      */
     public RotorGroup(Rotor[] rotors) {
         this.rotors = rotors;
@@ -53,10 +55,10 @@ public class RotorGroup {
     }
 
     /**
-     * Useful for creating a RotorGroup object, given the names of each rotor and their corresponding settings (these rotor names must be available in WiringInfo class)
+     * Useful for creating a enigma.RotorGroup object, given the names of each rotor and their corresponding settings (these rotor names must be available in WiringInfo class)
      * @param rotorNames The list of names of the required rotors.
      * @param rotorSettings The initial settings for each of the required rotors.
-     * @return The newly prepared RotorGroup object.
+     * @return The newly prepared enigma.RotorGroup object.
      */
     public static RotorGroup getRotorGroupByNames(String[] rotorNames, int[] rotorSettings) {
         Rotor[] rotors = new Rotor[rotorNames.length];
@@ -73,8 +75,8 @@ public class RotorGroup {
     }
 
     /**
-     * Returns array of settings of all the rotors in this RotorGroup object.
-     * @return the array of settings of all the rotors in this RotorGroup object.
+     * Returns array of settings of all the rotors in this enigma.RotorGroup object.
+     * @return the array of settings of all the rotors in this enigma.RotorGroup object.
      */
     public int[] getChildRotorSettings() {
         int[] settings = new int[rotors.length];
@@ -85,8 +87,8 @@ public class RotorGroup {
     }
 
     /**
-     * Sets the settings of all the rotors in this RotorGroup object.
-     * @param settings the array of new settings for all the rotors in this RotorGroup object.
+     * Sets the settings of all the rotors in this enigma.RotorGroup object.
+     * @param settings the array of new settings for all the rotors in this enigma.RotorGroup object.
      */
     public void setChildRotorSettings(int[] settings) {
         for (int i = 0; i < settings.length; i++) {

@@ -1,5 +1,7 @@
+package enigma;
+
 /**
- * A class representing a Reflector in an Enigma machine
+ * A class representing a enigma.Reflector in an Enigma machine
  * @author Kushal Galrani
  */
 public class Reflector {
@@ -10,7 +12,7 @@ public class Reflector {
 
     /**
      *
-     * @param wiringInfo String representation of the wiring of the rotor. See WiringData class's code to understand how the String representation works
+     * @param wiringInfo String representation of the wiring of the rotor. See enigma.WiringData class's code to understand how the String representation works
      */
     public Reflector(String wiringInfo) {
         //initialises the wiring array
@@ -32,9 +34,9 @@ public class Reflector {
     }
 
     /**
-     * Creates a Reflector object, given the name of the Rotor. (the name must be present in the WiringInfo class
+     * Creates a enigma.Reflector object, given the name of the enigma.Rotor. (the name must be present in the WiringInfo class
      * @param name The name of the reflector as present in the WiringInfo class
-     * @return The newly created Reflector object
+     * @return The newly created enigma.Reflector object
      */
     public static Reflector getReflectorByName(String name) {
         for (int i = 0; i < WiringData.reflectorWiringData.length; i++) {

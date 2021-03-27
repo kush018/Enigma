@@ -1,3 +1,5 @@
+import enigma.Machine;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -53,9 +55,9 @@ public class Main {
         System.out.println("exit; - exits the program");
         System.out.println("NOTE: when whatever you type into the prompt is none of the above commands, the program simply encrypts whatever you have typed and prints out the ciphertext");
         System.out.println("The default settings of the machine are:");
-        System.out.println("Reflector: C");
+        System.out.println("enigma.Reflector: C");
         System.out.println("Rotors: I VIII III IV");
-        System.out.println("Rotor settings: 7 11 15 21");
+        System.out.println("enigma.Rotor settings: 7 11 15 21");
         System.out.println("Plugboard settings are: AU BY CO DS EQ FX GT HW KP MV");
         System.out.println("NOTE: Valid rotor settings are between 0 and 25 ONLY");
         System.out.println("Valid rotor names are I, II, III, IV, V, VI, VII, VIII ONLY");
@@ -112,7 +114,7 @@ public class Main {
         }
 
         machine = Machine.getMachineBySetting(reflectorName, Machine.convertStringToArray(rotorNames), settingsArrInt, Machine.convertStringToArray(plugBoardSettings));
-        System.out.println("Machine set successfully");
+        System.out.println("enigma.Machine set successfully");
     }
 
     /**
@@ -133,7 +135,7 @@ public class Main {
     }
 
     /**
-     * Checks the validity of a rotor name (a rotor name is valid if there is an entry of that rotor name in the WiringData class)
+     * Checks the validity of a rotor name (a rotor name is valid if there is an entry of that rotor name in the enigma.WiringData class)
      * @param rotorName The name of the rotor whose validity needs to be checked.
      * @return true if and only if the name of the rotor is valid.
      */
@@ -150,7 +152,7 @@ public class Main {
     }
 
     /**
-     * Checks the validity of a reflector name (a reflector name is valid if there is an entry of that reflector name in the WiringData class)
+     * Checks the validity of a reflector name (a reflector name is valid if there is an entry of that reflector name in the enigma.WiringData class)
      * @param reflectorName The name of the reflector whose validity needs to be checked.
      * @return true if and only if the name of the reflector is valid.
      */

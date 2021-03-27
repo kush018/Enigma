@@ -1,3 +1,5 @@
+package enigma;
+
 /**
  * This class represents an Enigma machine
  *
@@ -10,9 +12,9 @@ public class Machine {
 
     /**
      *
-     * @param plugBoard A PlugBoard object that will be the plugboard of this Enigma machine that helps in message encryption
-     * @param reflector A Reflector object that will be used as a reflector of this Enigma machine that helps in message encryption
-     * @param rotorGroup A RotorGroup object that will be used as a "collection of rotors" for this enigma machine and help in message encryption
+     * @param plugBoard A enigma.PlugBoard object that will be the plugboard of this Enigma machine that helps in message encryption
+     * @param reflector A enigma.Reflector object that will be used as a reflector of this Enigma machine that helps in message encryption
+     * @param rotorGroup A enigma.RotorGroup object that will be used as a "collection of rotors" for this enigma machine and help in message encryption
      */
     public Machine(PlugBoard plugBoard, Reflector reflector, RotorGroup rotorGroup) {
         this.plugBoard = plugBoard;
@@ -23,8 +25,8 @@ public class Machine {
     /**
      * A method that allows one to create a machine very easily using String representation of all the required Enigma machine components.
      * This is useful if one wants the user to enter rotor names, reflector name, plugboard settings etc, and it will create an Enigma machine object automatically
-     * @param reflectorName The name of the reflector that will be used. The name must be there in the WiringData class
-     * @param rotorNames The names of the rotors to be used by the machine. The name must be there in the WiringData class
+     * @param reflectorName The name of the reflector that will be used. The name must be there in the enigma.WiringData class
+     * @param rotorNames The names of the rotors to be used by the machine. The name must be there in the enigma.WiringData class
      * @param settings The settings of the rotors of the Enigma machine. The number of settings given must be same as number of rotors and must be such an order such that each setting is for to the name of the corresponding rotor given in the rotorNames array
      * @param plugBoardWiring The String representation of the plug board
      * @return The created Enigma machine object
@@ -69,7 +71,7 @@ public class Machine {
 
     /**
      * Converts a single String into array, by splitting it using the space character. It gets rid of any special characters and makes everything uppercase.
-     * This is useful to convert a String entered by a user into a RotorGroup or a plugboard where everything needs to be uppercase and special characters typed by mistake should be ignored.
+     * This is useful to convert a String entered by a user into a enigma.RotorGroup or a plugboard where everything needs to be uppercase and special characters typed by mistake should be ignored.
      * @param str The String to be converted.
      * @return The resultant array.
      */
